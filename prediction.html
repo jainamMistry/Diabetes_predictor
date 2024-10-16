@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .main {
+            position: fixed;
+            top: 140px;
+            left: 410px;
+            width: 550px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            align-items: center;
+            padding: 5%;
+        }
+        h1 {
+            color: #0086b3;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        input[type=submit] {
+            background-color: #4dc3ff;
+            border: 2px;
+            color: white;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PREDICT YOUR DIABETES</h1>
+    <form method="GET" action="{% url 'diabetes_predictor:result' %}">
+        <table>
+            <tr>
+                <td align="right">Pregnancies:</td>
+                <td align="left"><input type="text" name="n1"></td>
+            </tr>
+            <tr>
+                <td align="right">Glucose:</td>
+                <td align="left"><input type="text" name="n2"></td>
+            </tr>
+            <tr>
+                <td align="right">Blood Pressure:</td>
+                <td align="left"><input type="text" name="n3"></td>
+            </tr>
+            <tr>
+                <td align="right">Skin Thickness:</td>
+                <td align="left"><input type="text" name="n4"></td>
+            </tr>
+            <tr>
+                <td align="right">Insulin:</td>
+                <td align="left"><input type="text" name="n5"></td>
+            </tr>
+            <tr>
+                <td align="right">BMI:</td>
+                <td align="left"><input type="text" name="n6"></td>
+            </tr>
+            <tr>
+                <td align="right">Diabetes Pedigree Function:</td>
+                <td align="left"><input type="text" name="n7"></td>
+            </tr>
+            <tr>
+                <td align="right">Age:</td>
+                <td align="left"><input type="text" name="n8"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Display the prediction result -->
+    <p>Result: {{ result2 }}</p>
+</body>
+</html>
